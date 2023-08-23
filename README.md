@@ -77,17 +77,13 @@ We welcome contributions from the community that can help improve Mera Box. If y
 4. Push to your forked repository.
 5. Create a pull request detailing your changes.
 
-## License
-
-This project is licensed under the [MIT License](link-to-license-file).
-
----
+## 
 
 Give Mera Box a try and [mention a call-to-action encouraging users to check out or use your application]! If you encounter any issues or have suggestions, feel free to open an issue on the repository. Your feedback is highly appreciated.
 
 Connect with us:
-- Email: [your-email@example.com](mailto:your-email@example.com)
-- Twitter: [@MeraBoxApp](https://twitter.com/MeraBoxApp)
-- Website: [https://meraboxapp.com](https://meraboxapp.com)
+- Email: [jayant.gupta.dln@gmail.com](jayant.gupta.dln@gmail.com)
+- LinkedIn: [@jayant-cse](https://www.linkedin.com/in/jayant-cse/)
+- Website: [https://jayant-gupta.vercel.app](https://jayant-gupta.vercel.app)
 
 Let's revolutionize [mention your application's mission or vision] together!
