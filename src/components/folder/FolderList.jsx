@@ -2,28 +2,7 @@ import React from "react";
 import FolderItem from "./FolderItem";
 
 const FolderList = ({folders}) => {
-    const demofolders = [
-        {
-            id: 1,
-            name: "Folder 1 ",
-        },
-        {
-            id: 2,
-            name: "Folder 2",
-        },
-        {
-            id: 3,
-            name: "Folder 3",
-        },
-        {
-            id: 4,
-            name: "Folder 4",
-        },
-        {
-            id: 5,
-            name: "Folder 5",
-        },
-    ];
+
     return (
         <div className="p-5 mt-5 bg-[#2a323c]">
             <h2 className="font-bold text-lg md:text-xl text-[#a6adba] flex items-center justify-between">

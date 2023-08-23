@@ -7,39 +7,39 @@ import {
     where,
 } from "firebase/firestore";
 
-export const fetchFolders = async (session) => {
-    let folders = [];
+export const fetchFiles = async (session) => {
+    let files = [];
 
     const db = getFirestore(app);
 
     const q = query(
-        collection(db, "Folders"),
+        collection(db, "files"),
         where("createdBy", "==", session.user.email)
     );
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        folders.push(doc.data());
+        files.push(doc.data());
         // console.log(doc.id, " => ", doc.data());
     });
-    return folders;
+    return files;
 };
 
-export const fetchSubFolders = async (session, id) => {
-    let folders = [];
+export const fetchSubFiles = async (session, id) => {
+    let files = [];
 
     const db = getFirestore(app);
 
     const q = query(
-        collection(db, "Folders"),
+        collection(db, "files"),
         where("createdBy", "==", session.user.email),
         where("parentFolderId", "==", id)
     );
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-        folders.push(doc.data());
+        files.push(doc.data());
         // console.log(doc.id, " => ", doc.data());
     });
-    return folders;
+    return files;
 };

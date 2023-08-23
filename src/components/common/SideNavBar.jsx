@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { sideMenu } from "@/data";
 import CreateFolderModal from "../folder/CreateFolderModal";
+import Link from "next/link";
+import UploadFileModal from "../file/UploadFileModal";
 
 const SideNavBar = () => {
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
     const router = useRouter();
 
     const onMenuClick = (item, index) => {
@@ -30,6 +32,7 @@ const SideNavBar = () => {
             </div>
             {/* Add New FIle button */}
             <button
+                onClick={() => window.upload_file.showModal()}
                 className="flex gap-2 items-center text-[13px] bg-blue-500 p-2 text-white rounded-md px-3
         hover:scale-105 transition-all mt-5 w-full justify-center"
             >
@@ -52,7 +55,7 @@ const SideNavBar = () => {
             {/* Create new Folder button */}
             {/* <button className="btn" >open modal</button> */}
             <button
-                onClick={() => window.my_modal_5.showModal()}
+                onClick={() => window.create_folder_modal.showModal()}
                 className="flex  gap-2 items-center text-[13px] bg-sky-500 p-2 text-white rounded-md px-3 hover:scale-105 transition-all mt-3 w-full justify-center"
             >
                 <span className="hidden md:inline">Add Folder</span>
@@ -75,35 +78,43 @@ const SideNavBar = () => {
             <div className="mt-5 w-full bg-[#a6adba] h-[1px]" />
             <menu>
                 {sideMenu.map((item, index) => (
-                    <h2
-                        key={index}
-                        onClick={() => onMenuClick(item, index)}
-                        className={`flex gap-2 items-center p-2 mt-3 justify-center md:justify-start text-gray-500 rounded-md cursor-pointer
+                    <Link key={index} href={item.url}>
+                        <h2
+                            onClick={() => onMenuClick(item, index)}
+                            className={`flex gap-2 items-center p-2 mt-3 justify-center md:justify-start text-gray-500 rounded-md cursor-pointer
                 hover:bg-blue-500 hover:text-white ${
                     activeIndex == index ? "bg-blue-500 text-white" : null
                 }`}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d={item.logo}
-                            />
-                        </svg>
-                        <span className="hidden md:inline">{item.name}</span>
-                    </h2>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d={item.logo}
+                                />
+                            </svg>
+                            <span className="hidden md:inline">
+                                {item.name}
+                            </span>
+                        </h2>
+                    </Link>
                 ))}
             </menu>
 
+            <dialog id="upload_file" className="modal">
+                <UploadFileModal
+                    closeModal={() => window.upload_file.close()}
+                />
+            </dialog>
             <dialog
-                id="my_modal_5"
+                id="create_folder_modal"
                 className="modal modal-bottom sm:modal-middle"
             >
                 <CreateFolderModal />
