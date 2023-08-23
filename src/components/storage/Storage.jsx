@@ -16,7 +16,6 @@ const Storage = () => {
                 <h2 className="text-[13px] text-[#eeeeee]">
                     Get more space my upgrading the plan
                 </h2>
-
                 <button
                     className="bg-blue-500 p-2 px-4 text-[14px] rounded-lg mt-3"
                     onClick={() => router.push("/plans")}
