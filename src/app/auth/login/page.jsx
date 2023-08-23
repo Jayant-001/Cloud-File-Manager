@@ -7,8 +7,6 @@ const LoginPage = () => {
     const session = useSession();
     const router = useRouter();
 
-    console.log(session);
-
     if (session.status === "loading") {
         return <p className="mt-20 text-center">Loading</p>;
     }
@@ -16,7 +14,7 @@ const LoginPage = () => {
     if (session.status === "authenticated") {
         router.push("/");
     }
-
+    // unauthenticated
     return (
         <div className="w-full h-screen flex justify-center items-center">
             <button

@@ -27,7 +27,10 @@ const SideNavBar = () => {
                     className="cursor-pointer"
                     width={50}
                     height={60}
-                    onClick={() => router.push("/")}
+                    onClick={() => {
+                        router.push("/");
+                        setActiveIndex(0);
+                    }}
                 />
             </div>
             {/* Add New FIle button */}

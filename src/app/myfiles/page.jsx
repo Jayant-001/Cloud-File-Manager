@@ -7,6 +7,7 @@ import { toastContext } from "@/context/ToastContext";
 import { fetchSubFiles } from "@/services/fetchFiles";
 import { fetchFolders, fetchSubFolders } from "@/services/fetchFolders";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 const MyFilesPage = () => {
@@ -44,6 +45,14 @@ const MyFilesPage = () => {
             getFiles();
         }
     }, [session, showToastMsg]);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if(session.status === 'unauthenticated') {
+            router.push('/auth/login')
+        }
+    }, [session])
 
     const getFiles = async () => {
         const data = await fetchSubFiles(session.data, 0);

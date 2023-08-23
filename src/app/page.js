@@ -6,6 +6,7 @@ import { toastContext } from "@/context/ToastContext";
 import { fetchFiles } from "@/services/fetchFiles";
 import { fetchFolders } from "@/services/fetchFolders";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 
 export default function Home() {
@@ -13,7 +14,15 @@ export default function Home() {
     const [folders, setFolders] = useState([]);
     const [files, setFiles] = useState([])
     const {showToastMsg} = useContext(toastContext)
-    
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if(session.status === 'unauthenticated') {
+            router.push('/auth/login')
+        }
+    }, [session])
+
     useEffect(() => {
         if(session.status === 'authenticated') {
             getFolders();

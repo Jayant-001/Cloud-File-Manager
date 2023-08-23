@@ -17,7 +17,7 @@ const AppLayout = ({ children }) => {
                         <div>{children}</div>
                     </div>
                     <div className=" p-5 order-first md:order-last">
-                        <Storage />
+                        <Storage /> 
                     </div>
                 </div>
             </div>

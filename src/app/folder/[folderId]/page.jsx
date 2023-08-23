@@ -6,7 +6,7 @@ import { toastContext } from "@/context/ToastContext";
 import { fetchSubFiles } from "@/services/fetchFiles";
 import { fetchSubFolders } from "@/services/fetchFolders";
 import { useSession } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 
 const FolderDetails = ({ params }) => {
@@ -19,6 +19,14 @@ const FolderDetails = ({ params }) => {
     const session = useSession();
     const [folders, setFolders] = useState([]);
     const [files, setFiles] = useState([]);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if (session.status === "unauthenticated") {
+            router.push("/auth/login");
+        }
+    }, [session]);
 
     useEffect(() => {
         if (session.status === "authenticated") {
