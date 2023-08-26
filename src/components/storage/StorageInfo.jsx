@@ -40,12 +40,12 @@ const StorageInfo = () => {
 
     return (
         <div className="mt-7">
-            <h2 className="text-[22px] font-bold">
+            <h2 className="text-[22px] text-[#eeeeee] font-bold">
                 {totalSizeUsed} MB <span className="text-[14px] font-medium">used of </span>{" "}
                 100 MB 
             </h2>
             <div className="w-full bg-gray-200  h-2.5 flex">
-                <div className={`bg-gray-600 h-2.5 w-[10%]`}></div>
+                <div className={`bg-gray-600 h-2.5 w-[5%]`}></div>
                 {/* <div className="bg-green-600 h-2.5 w-[35%]"></div>
                 <div className="bg-yellow-400 h-2.5 w-[15%]"></div> */}
             </div>

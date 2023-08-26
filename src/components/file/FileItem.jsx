@@ -46,7 +46,7 @@ const FileItem = ({ file }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-between cursor-pointer hover:bg-gray-800 p-3 rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-between cursor-pointer text-[#eeeeee] hover:bg-gray-800 p-3 rounded-md">
             <div className="flex gap-2 items-center">
                 <Image
                     src={image}

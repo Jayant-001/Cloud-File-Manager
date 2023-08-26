@@ -28,7 +28,7 @@ const AccountInfo = () => {
                             className="rounded-full"
                         />
                         <div>
-                            <h2 className="text-[15px] font-bold">
+                            <h2 className="text-[15px] font-bold text-[#eeeeee]">
                                 {session.user.name}
                             </h2>
                             <h2 className="text-[13px] text-gray-400 mt-[-4px]">
