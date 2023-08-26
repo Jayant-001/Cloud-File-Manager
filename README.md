@@ -11,7 +11,7 @@ Pocket Cloud is a web application built to provide users with a seamless and eff
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
-- [Environment Variables](#Environment Variables)
+- [Environment Variables](#environment-variables)
 - [Usage](#usage)
 - [Authentication](#authentication)
 - [UI Design](#ui-design)
