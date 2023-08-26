@@ -6,6 +6,7 @@ import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { toastContext } from "@/context/ToastContext";
 import { usePathname } from "next/navigation";
+import { loadingContext } from "@/context/LoadingContext";
 
 const CreateFolderModal = () => {
     const [folderName, setFolderName] = useState("");
@@ -14,6 +15,7 @@ const CreateFolderModal = () => {
 
     const { data: session } = useSession();
     const { setShowToastMsg } = useContext(toastContext);
+    const {setLoading} = useContext(loadingContext);
 
     const [folderId, setFolderId] = useState(0);
     const pathname = usePathname();
@@ -27,6 +29,7 @@ const CreateFolderModal = () => {
     }, [pathname]);
 
     const onCreate = async () => {
+        setLoading(true);
         await setDoc(doc(db, "Folders", docId), {
             name: folderName,
             createdBy: session.user.email,
@@ -35,6 +38,7 @@ const CreateFolderModal = () => {
             parentFolderId: folderId,
         });
 
+        setLoading(false);
         setFolderName("");
         setShowToastMsg("Folder created");
     };

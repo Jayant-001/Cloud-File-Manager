@@ -1,7 +1,5 @@
 import React from "react";
-import FolderItem from "./FolderItem";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 
 const AllFoldersList = ({ folders, folderName }) => {
     const demofolders = [

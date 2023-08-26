@@ -1,13 +1,25 @@
 "use client";
+import { loadingContext } from "@/context/LoadingContext";
 import { toastContext } from "@/context/ToastContext";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const AccountInfo = () => {
+    const ss = useSession();
     const { data: session } = useSession();
 
     const { setShowToastMsg } = useContext(toastContext);
+
+    const { setLoading } = useContext(loadingContext);
+    useEffect(() => {
+        if(ss.status === 'loading') {
+            setLoading(true);
+        }
+        else {
+            setLoading(false);
+        }
+    }, [session])
 
     const handleLogout = (e) => {
         e.preventDefault();

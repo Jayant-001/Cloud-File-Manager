@@ -1,4 +1,5 @@
 "use client";
+import { loadingContext } from "@/context/LoadingContext";
 import { toastContext } from "@/context/ToastContext";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -8,6 +9,16 @@ const StargedPage = () => {
     const session = useSession();
     const router = useRouter();
     const {showToastMsg, setShowToastMsg} = useContext(toastContext)
+
+    const { setLoading } = useContext(loadingContext);
+    useEffect(() => {
+        if(session.status === 'loading') {
+            setLoading(true);
+        }
+        else {
+            setLoading(false);
+        }
+    }, [session])
 
     useEffect(() => {
         if (session.status === "unauthenticated") {

@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import ToastContext from "@/context/ToastContext";
 import FolderContext from "@/context/FolderContext";
+import { BeatLoader, RingLoader } from "react-spinners";
+import LoadingContext from "@/context/LoadingContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,12 +16,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} bg-[#1d232a]`}>
-                <ToastContext>
-                    <FolderContext>
-                        <AppLayout>{children}</AppLayout>
-                    </FolderContext>
-                </ToastContext>
+            <body className={`${inter.className} relative bg-[#1d232a]`}>
+                <LoadingContext>
+                    <ToastContext>
+                        <FolderContext>
+                            <AppLayout>{children}</AppLayout>
+                        </FolderContext>
+                    </ToastContext>
+                </LoadingContext>
             </body>
         </html>
     );

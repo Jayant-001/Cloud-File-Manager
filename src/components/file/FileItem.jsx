@@ -8,6 +8,7 @@ import { app } from "@/config/Firebase";
 import { deleteObject, getStorage, ref } from "firebase/storage";
 import { toastContext } from "@/context/ToastContext";
 import { useSession } from "next-auth/react";
+import { loadingContext } from "@/context/LoadingContext";
 
 const FileItem = ({ file }) => {
     const fileType =
@@ -21,8 +22,10 @@ const FileItem = ({ file }) => {
     const docId = Date.now();
     const { setShowToastMsg } = useContext(toastContext);
     const { data: session } = useSession();
+    const {setLoading} = useContext(loadingContext)
 
     const deleteFile = async (file) => {
+        setLoading(true);
         // sent file to trash
         await setDoc(doc(db, "trash", docId.toString()), {
             name: file.name,
@@ -38,15 +41,26 @@ const FileItem = ({ file }) => {
             .then(async () => {
                 await deleteDoc(doc(db, "files", file.id.toString()));
                 setShowToastMsg("File deleted");
+                setLoading(false);
             })
             .catch((error) => {
                 console.log(error);
                 setShowToastMsg("Server error");
+                setLoading(false);
             });
     };
 
+    const deleteFileClick = (e) => {
+        e.stopPropagation();
+        console.log("hello");
+        // deleteFile(file);
+    };
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-between cursor-pointer text-[#eeeeee] hover:bg-gray-800 p-3 rounded-md">
+        <div
+            onClick={() => window.open(file.fileUrl)}
+            className="grid grid-cols-1 md:grid-cols-2 justify-between cursor-pointer text-[#eeeeee] hover:bg-gray-800 p-3 rounded-md"
+        >
             <div className="flex gap-2 items-center">
                 <Image
                     src={image}
@@ -55,12 +69,7 @@ const FileItem = ({ file }) => {
                     height={20}
                     on="true"
                 />
-                <h2
-                    className="text-[15px] truncate"
-                    onClick={() => window.open(file.fileUrl)}
-                >
-                    {file.name}
-                </h2>
+                <h2 className="text-[15px] truncate">{file.name}</h2>
             </div>
             <div className="grid grid-cols-3 place-content-start ">
                 <h2 className="text-[15px]">
@@ -74,25 +83,35 @@ const FileItem = ({ file }) => {
                 </h2>
                 <div>
                     <div className=" flex items-center justify-around">
-                        <svg
-                            onClick={() => console.log("download")}
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6 hover:text-blue-500 hover:scale-110 transition-all"
+                        <a
+                            onClick={(e) => e.stopPropagation()}
+                            href={file.fileUrl}
+                            download="Example-PDF-document"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                            />
-                        </svg>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="w-6 h-6 hover:text-blue-500 hover:scale-110 transition-all"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                                />
+                            </svg>
+                        </a>
 
                         <svg
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                deleteFile(file);
+                            }}
                             xmlns="http://www.w3.org/2000/svg"
-                            onClick={() => deleteFile(file)}
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}

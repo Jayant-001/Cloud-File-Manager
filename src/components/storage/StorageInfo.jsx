@@ -1,5 +1,6 @@
 "use client";
 import { app } from "@/config/Firebase";
+import { loadingContext } from "@/context/LoadingContext";
 import {
     collection,
     getDocs,
@@ -8,20 +9,29 @@ import {
     where,
 } from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const StorageInfo = () => {
-    const session  = useSession();
+    const session = useSession();
     const db = getFirestore(app);
 
     const [totalSizeUsed, setTotalSizeUsed] = useState(0);
-    let totalSize=0;
+    let totalSize = 0;
+
+    const { setLoading } = useContext(loadingContext);
+    useEffect(() => {
+        if (session.status === "loading") {
+            setLoading(true);
+        } else {
+            setLoading(false);
+        }
+    }, [session]);
 
     useEffect(() => {
-        if(session.status === 'authenticated') {
+        if (session.status === "authenticated") {
             getAllFiles();
         }
-    }, [session])
+    }, [session]);
 
     const getAllFiles = async () => {
         const q = query(
@@ -41,8 +51,8 @@ const StorageInfo = () => {
     return (
         <div className="mt-7">
             <h2 className="text-[22px] text-[#eeeeee] font-bold">
-                {totalSizeUsed} MB <span className="text-[14px] font-medium">used of </span>{" "}
-                100 MB 
+                {totalSizeUsed} MB{" "}
+                <span className="text-[14px] font-medium">used of </span> 100 MB
             </h2>
             <div className="w-full bg-gray-200  h-2.5 flex">
                 <div className={`bg-gray-600 h-2.5 w-[5%]`}></div>

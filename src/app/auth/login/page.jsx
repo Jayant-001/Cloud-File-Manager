@@ -1,14 +1,27 @@
 "use client";
 
+import { loadingContext } from "@/context/LoadingContext";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useContext, useEffect } from "react";
 
 const LoginPage = () => {
     const session = useSession();
     const router = useRouter();
 
+    const { setLoading } = useContext(loadingContext);
+    useEffect(() => {
+        if (session.status === "loading") {
+            setLoading(true);
+        } else {
+            setLoading(false);
+        }
+    }, [session]);
+
     if (session.status === "loading") {
-        return <p className="mt-20 text-center">Loading</p>;
+        return (
+            <p className="mt-20 text-center text-xl font-bold">Loading...</p>
+        );
     }
 
     if (session.status === "authenticated") {

@@ -7,12 +7,15 @@ import { useContext, useEffect, useState } from "react";
 import { app } from "@/config/Firebase";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { loadingContext } from "@/context/LoadingContext";
 
 const UploadFileModal = ({ closeModal }) => {
     const { data: session } = useSession();
     const [folderId, setFolderId] = useState(0);
     const pathname = usePathname();
     const { setShowToastMsg } = useContext(toastContext);
+    const {setLoading} = useContext(loadingContext)
+
     useEffect(() => {
         if (pathname.startsWith("/folder")) {
             const id = pathname.split("/").at(-1);
@@ -26,6 +29,7 @@ const UploadFileModal = ({ closeModal }) => {
     const storage = getStorage(app);
     const docId = Date.now();
     const onFileUpload = async (file) => {
+        setLoading(true);
         const fileRef = ref(storage, "/files/" + file.name);
         uploadBytes(fileRef, file)
             .then((snapshot) => {
@@ -46,6 +50,7 @@ const UploadFileModal = ({ closeModal }) => {
 
                     closeModal(true);
                     setShowToastMsg("File uploaded");
+                    setLoading(false);
                 });
             });
     };
