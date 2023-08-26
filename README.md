@@ -11,6 +11,7 @@ Pocket Cloud is a web application built to provide users with a seamless and eff
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Installation](#installation)
+- [Environment Variables](#Environment Variables)
 - [Usage](#usage)
 - [Authentication](#authentication)
 - [UI Design](#ui-design)
@@ -56,7 +57,7 @@ To get started with Pocket Cloud, follow these steps:
 3. Install the dependencies: `npm install`
 4. Start the server: `npm run dev`
 
-### Environment variables
+### Environment Variables
 
 1. GOOGLE_CLIENT_ID
 2. GOOGLE_CLIENT_SECRET
