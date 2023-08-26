@@ -51,14 +51,26 @@ To get started with Pocket Cloud, follow these steps:
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/mera-box.git`
-2. Navigate to the project directory: `cd mera-box`
+1. Clone the repository: `git clone https://github.com/Jayant-001/Cloud-File-Manager.git`
+2. Navigate to the project directory: `cd Cloud-File-Manager`
 3. Install the dependencies: `npm install`
 4. Start the server: `npm run dev`
 
+### Environment variables
+
+1. GOOGLE_CLIENT_ID
+2. GOOGLE_CLIENT_SECRET
+3. NEXTAUTH_SECRET
+4. NEXTAUTH_URL
+5. FIREBASE_API_KEY
+
 ### Usage
 
-[Provide instructions on how to run and use your application]
+1. Login using Google Account
+2. Click on `Add Folder` to add new folder
+3. Click on `Add file` to add upload new file
+4. Go to `My Files` to manage you all folders/files
+
 
 ## Authentication
 
