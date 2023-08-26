@@ -1,8 +1,9 @@
-# Mera Box Web Application
+# [Pocket Cloud](https://epic-cart-2.vercel.app/)
 
-![Mera Box Banner](link-to-banner-image)
 
-Mera Box is a web application built to provide users with a seamless and efficient solution for [describe the main purpose or functionality of your application]. By leveraging the power of Next.js, React.js, Firebase, NextAuth, Google OAuth, Tailwind, and DailyUI, Mera Box offers a feature-rich experience that caters to [describe your target audience and their needs that your application fulfills].
+![Pocket Cloud](https://raw.githubusercontent.com/Jayant-001/Cloud-File-Manager/master/public/home%20ss.png)
+
+Pocket Cloud is a web application built to provide users with a seamless and efficient solution for [describe the main purpose or functionality of your application]. By leveraging the power of Next.js, React.js, Firebase, NextAuth, Google OAuth, Tailwind, and DailyUI, Pocket Cloud offers a feature-rich experience that caters to [describe your target audience and their needs that your application fulfills].
 
 ## Table of Contents
 
@@ -18,7 +19,7 @@ Mera Box is a web application built to provide users with a seamless and efficie
 
 ### Features
 
-Mera Box offers a range of powerful features designed to enhance your file management experience:
+Pocket Cloud offers a range of powerful features designed to enhance your file management experience:
 
 1. **Folder Creation and File Upload:** Easily create folders to organize your files efficiently. Upload files directly into these folders for a structured storage approach.
 
@@ -30,11 +31,11 @@ Mera Box offers a range of powerful features designed to enhance your file manag
 
 5. **File Management:** Take control of your files with the ability to delete and download them as needed. This feature empowers you to maintain an up-to-date and relevant collection of files.
 
-Whether you're an individual looking for streamlined file management or a professional seeking an organized workspace, Mera Box's intuitive interface and feature set provide the tools you need to stay on top of your digital assets. Try Mera Box today and revolutionize the way you manage your files!
+Whether you're an individual looking for streamlined file management or a professional seeking an organized workspace, Pocket Cloud's intuitive interface and feature set provide the tools you need to stay on top of your digital assets. Try Pocket Cloud today and revolutionize the way you manage your files!
 
 ### Technologies Used
 
-Mera Box is built with the following technologies:
+Pocket Cloud is built with the following technologies:
 
 - Next.js
 - React.js
@@ -46,7 +47,7 @@ Mera Box is built with the following technologies:
 
 ## Getting Started
 
-To get started with Mera Box, follow these steps:
+To get started with Pocket Cloud, follow these steps:
 
 ### Installation
 
@@ -61,15 +62,15 @@ To get started with Mera Box, follow these steps:
 
 ## Authentication
 
-Mera Box implements secure authentication using NextAuth and Google OAuth. Users can log in using their Google accounts, ensuring a seamless and secure experience.
+Pocket Cloud implements secure authentication using NextAuth and Google OAuth. Users can log in using their Google accounts, ensuring a seamless and secure experience.
 
 ## UI Design
 
-The user interface of Mera Box is designed with attention to detail and usability in mind. The application follows the principles of DailyUI to deliver a visually appealing and user-friendly interface.
+The user interface of Pocket Cloud is designed with attention to detail and usability in mind. The application follows the principles of DailyUI to deliver a visually appealing and user-friendly interface.
 
 ## Contributing
 
-We welcome contributions from the community that can help improve Mera Box. If you'd like to contribute, please follow these steps:
+We welcome contributions from the community that can help improve Pocket Cloud. If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch: `git checkout -b feature/your-feature-name`
@@ -79,7 +80,7 @@ We welcome contributions from the community that can help improve Mera Box. If y
 
 ## 
 
-Give Mera Box a try and [mention a call-to-action encouraging users to check out or use your application]! If you encounter any issues or have suggestions, feel free to open an issue on the repository. Your feedback is highly appreciated.
+Give Pocket Cloud a try and [mention a call-to-action encouraging users to check out or use your application]! If you encounter any issues or have suggestions, feel free to open an issue on the repository. Your feedback is highly appreciated.
 
 Connect with us:
 - Email: [jayant.gupta.dln@gmail.com](jayant.gupta.dln@gmail.com)
