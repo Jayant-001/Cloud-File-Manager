@@ -3,7 +3,6 @@ import { toastContext } from "@/context/ToastContext";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-
 import { app } from "@/config/Firebase";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";

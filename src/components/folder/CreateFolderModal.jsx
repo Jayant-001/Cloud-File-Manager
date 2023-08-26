@@ -50,7 +50,7 @@ const CreateFolderModal = () => {
                 onSubmit={onCreate}
                 className="modal-box p-9 items-center"
             >
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={() => console.log("first")}>
                     ✕
                 </button>
                 <div className="w-full items-center flex flex-col justify-center gap-3">

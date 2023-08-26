@@ -9,7 +9,6 @@ import { fetchFolders } from "@/services/fetchFolders";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
-import { RingLoader } from "react-spinners";
 
 export default function Home() {
     const session = useSession();
