@@ -17,7 +17,7 @@ const StargedPage = () => {
     }, [session]);
 
     return (
-        <div className="flex flex-col items-center mt-52">
+        <div className="flex flex-col items-center mt-52 text-[#eeeeee]">
             <h1 className="text-lg md:text-2xl font-medium">This feature is under development.</h1>
             <h2 className="text-md md:text-xl">It will be added soon.</h2>
         </div>
