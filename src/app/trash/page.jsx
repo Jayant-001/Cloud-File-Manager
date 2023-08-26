@@ -1,11 +1,12 @@
 'use client'
 import { app } from "@/config/Firebase";
+import { toastContext } from "@/context/ToastContext";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import moment from "moment";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const TrashPage = () => {
     // const files = [
@@ -42,10 +43,12 @@ const TrashPage = () => {
     const [files, setFiles] = useState([]) 
     const session = useSession();
     const router = useRouter();
+    const {showToastMsg, setShowToastMsg} = useContext(toastContext)
 
     useEffect(() => {
         if(session.status === 'unauthenticated') {
             router.push('/auth/login')
+            setShowToastMsg("Login to continue.")
         }
     }, [session])
 

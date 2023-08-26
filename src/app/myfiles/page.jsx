@@ -5,7 +5,7 @@ import AllFoldersList from "@/components/folder/AllFoldersList";
 
 import { toastContext } from "@/context/ToastContext";
 import { fetchSubFiles } from "@/services/fetchFiles";
-import { fetchFolders, fetchSubFolders } from "@/services/fetchFolders";
+import { fetchSubFolders } from "@/services/fetchFolders";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
@@ -37,7 +37,7 @@ const MyFilesPage = () => {
     const session = useSession();
     const [folders, setFolders] = useState([]);
     const [files, setFiles] = useState([]);
-    const { showToastMsg } = useContext(toastContext);
+    const { showToastMsg, setShowToastMsg } = useContext(toastContext);
 
     useEffect(() => {
         if (session.status === "authenticated") {
@@ -49,10 +49,11 @@ const MyFilesPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if(session.status === 'unauthenticated') {
-            router.push('/auth/login')
+        if (session.status === "unauthenticated") {
+            router.push("/auth/login");
+            setShowToastMsg("Login to continue.");
         }
-    }, [session])
+    }, [session]);
 
     const getFiles = async () => {
         const data = await fetchSubFiles(session.data, 0);

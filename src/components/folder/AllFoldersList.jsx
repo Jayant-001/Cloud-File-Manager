@@ -33,9 +33,15 @@ const AllFoldersList = ({ folders, folderName }) => {
                 / {folderName}&gt;
             </h2>
             <div className="mt-3">
-                {folders.map((item) => (
-                    <AllFolderItem key={item.id} folder={item} />
-                ))}
+                {folders.length === 0 ? (
+                    <h1 className="font-bold mt-5 text-center text-lg md:text-xl text-[#eeeeeedb]">
+                        Create a folder
+                    </h1>
+                ) : (
+                    folders.map((item) => (
+                        <AllFolderItem key={item.id} folder={item} />
+                    ))
+                )}
             </div>
         </div>
     );

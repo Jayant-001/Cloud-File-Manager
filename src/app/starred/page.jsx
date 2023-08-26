@@ -1,15 +1,18 @@
 "use client";
+import { toastContext } from "@/context/ToastContext";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 
 const StargedPage = () => {
     const session = useSession();
     const router = useRouter();
+    const {showToastMsg, setShowToastMsg} = useContext(toastContext)
 
     useEffect(() => {
         if (session.status === "unauthenticated") {
             router.push("/auth/login");
+            setShowToastMsg("Login to continue.")
         }
     }, [session]);
 

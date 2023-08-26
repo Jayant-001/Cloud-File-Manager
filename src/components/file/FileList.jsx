@@ -54,12 +54,17 @@ const FileList = ({ files }) => {
                 </div>
             </div>
 
-            {files &&
+            {files.length === 0 ? (
+                <h1 className="font-bold mt-5 text-center text-lg md:text-xl text-[#eeeeeedb]">
+                    Upload a new file
+                </h1>
+            ) : (
                 files.map((item, index) => (
                     <div key={index}>
                         <FileItem file={item} key={index} />
                     </div>
-                ))}
+                ))
+            )}
         </div>
     );
 };

@@ -1,7 +1,6 @@
 "use client";
 import FileList from "@/components/file/FileList";
 import AllFoldersList from "@/components/folder/AllFoldersList";
-import FolderList from "@/components/folder/FolderList";
 import { toastContext } from "@/context/ToastContext";
 import { fetchSubFiles } from "@/services/fetchFiles";
 import { fetchSubFolders } from "@/services/fetchFolders";
@@ -14,7 +13,7 @@ const FolderDetails = ({ params }) => {
     const searchParams = useSearchParams();
     const folderName = searchParams.get("name");
 
-    const { showToastMsg } = useContext(toastContext);
+    const { showToastMsg,setShowToastMsg } = useContext(toastContext);
 
     const session = useSession();
     const [folders, setFolders] = useState([]);
@@ -25,6 +24,7 @@ const FolderDetails = ({ params }) => {
     useEffect(() => {
         if (session.status === "unauthenticated") {
             router.push("/auth/login");
+            setShowToastMsg("Login to continue.")
         }
     }, [session]);
 

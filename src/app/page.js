@@ -13,13 +13,14 @@ export default function Home() {
     const session = useSession();
     const [folders, setFolders] = useState([]);
     const [files, setFiles] = useState([])
-    const {showToastMsg} = useContext(toastContext)
+    const {showToastMsg, setShowToastMsg} = useContext(toastContext)
 
     const router = useRouter();
 
     useEffect(() => {
         if(session.status === 'unauthenticated') {
             router.push('/auth/login')
+            setShowToastMsg("Login to continue.")
         }
     }, [session])
 
