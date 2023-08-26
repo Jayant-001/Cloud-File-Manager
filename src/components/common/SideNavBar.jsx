@@ -7,10 +7,12 @@ import { sideMenu } from "@/data";
 import CreateFolderModal from "../folder/CreateFolderModal";
 import Link from "next/link";
 import UploadFileModal from "../file/UploadFileModal";
+import { useSession } from "next-auth/react";
 
 const SideNavBar = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const router = useRouter();
+    const session = useSession();
 
     const onMenuClick = (item, index) => {
         setActiveIndex(index);
@@ -35,8 +37,9 @@ const SideNavBar = () => {
             </div>
             {/* Add New FIle button */}
             <button
+                disabled={session.status === "unauthenticated"}
                 onClick={() => window.upload_file.showModal()}
-                className="flex gap-2 items-center text-[13px] bg-blue-500 p-2 text-white rounded-md px-3
+                className="flex disabled:cursor-not-allowed gap-2 items-center text-[13px] bg-blue-500 p-2 text-white rounded-md px-3
         hover:scale-105 transition-all mt-5 w-full justify-center"
             >
                 <span className="hidden md:inline">Add File</span>
@@ -58,8 +61,9 @@ const SideNavBar = () => {
             {/* Create new Folder button */}
             {/* <button className="btn" >open modal</button> */}
             <button
+                disabled={session.status === "unauthenticated"}
                 onClick={() => window.create_folder_modal.showModal()}
-                className="flex  gap-2 items-center text-[13px] bg-sky-500 p-2 text-white rounded-md px-3 hover:scale-105 transition-all mt-3 w-full justify-center"
+                className="flex disabled:cursor-not-allowed gap-2 items-center text-[13px] bg-sky-500 p-2 text-white rounded-md px-3 hover:scale-105 transition-all mt-3 w-full justify-center"
             >
                 <span className="hidden md:inline">Add Folder</span>
                 <svg

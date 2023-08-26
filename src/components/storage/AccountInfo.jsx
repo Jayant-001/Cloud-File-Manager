@@ -1,9 +1,19 @@
 "use client";
+import { toastContext } from "@/context/ToastContext";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useContext } from "react";
 
 const AccountInfo = () => {
     const { data: session } = useSession();
+
+    const { setShowToastMsg } = useContext(toastContext);
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        signOut();
+        setShowToastMsg("Signing out.");
+    };
 
     return (
         <div>
@@ -32,7 +42,7 @@ const AccountInfo = () => {
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
-                            onClick={() => signOut()}
+                            onClick={handleLogout}
                             stroke="currentColor"
                             className="w-6 h-6 text-blue-500 hover:animate-pulse transition-all "
                         >
