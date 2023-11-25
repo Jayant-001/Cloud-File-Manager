@@ -6,7 +6,7 @@ const AboutDeveloper = () => {
         <div className="w-full rounded-lg bg-[#2a323c] text-center p-5 flex flex-col items-center justify-center">
             <Image
                 className="rounded-full"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrktqOrGmFNF4x_Gs_RkQPb_-zDcveAX7-Q&usqp=CAU"
+                src="/dev avatar.webp"
                 alt="avatar"
                 width={50}
                 height={50}
