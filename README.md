@@ -1,28 +1,25 @@
-
 # Project Title
 
-A brief description of what this project does and who it's for
+
+Pocket Cloud is a cutting-edge web application designed to streamline file and folder management on the cloud. Crafted with Next.js, React.js, Firebase, NextAuth, Google OAuth, Tailwind, and DaisyUI, Pocket Cloud ensures a seamless and feature-rich experience for users. Empowering remote file management, it brings efficiency and convenience to your daily routine. Explore the possibilities with Pocket Cloud in your hands!
 
 # [Pocket Cloud](https://pocket-cloud.vercel.app/)
 
-
 ![Pocket Cloud](https://raw.githubusercontent.com/Jayant-001/Cloud-File-Manager/master/public/home%20ss.png)
 
-Pocket Cloud is a web application built to provide users with a seamless and efficient solution for managing their files and folders on the cloud. By leveraging the power of Next.js, React.js, Firebase, NextAuth, Google OAuth, Tailwind, and DailyUI, Pocket Cloud offers a feature-rich experience that caters to
-remote file management in your day-to-day life.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Usage](#usage)
-- [Authentication](#authentication)
-- [UI Design](#ui-design)
-- [Contributing](#contributing)
-- [License](#license)
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [Getting Started](#getting-started)
+-   [Installation](#installation)
+-   [Environment Variables](#environment-variables)
+-   [Usage](#usage)
+-   [Authentication](#authentication)
+-   [UI Design](#ui-design)
+-   [Contributing](#contributing)
+-   [License](#license)
 
 ### Features
 
@@ -44,13 +41,13 @@ Whether you're an individual looking for streamlined file management or a profes
 
 Pocket Cloud is built with the following technologies:
 
-- Next.js
-- React.js
-- Firebase
-- NextAuth
-- Google OAuth
-- Tailwind CSS
-- DaisyUI
+-   Next.js
+-   React.js
+-   Firebase
+-   NextAuth
+-   Google OAuth
+-   Tailwind CSS
+-   DaisyUI
 
 ## Getting Started
 
@@ -78,7 +75,6 @@ To get started with Pocket Cloud, follow these steps:
 3. Click on `Add file` to add upload new file
 4. Go to `My Files` to manage you all folders/files
 
-
 ## Authentication
 
 Pocket Cloud implements secure authentication using NextAuth and Google OAuth. Users can log in using their Google accounts, ensuring a seamless and secure experience.
@@ -97,11 +93,12 @@ We welcome contributions from the community that can help improve Pocket Cloud. 
 4. Push to your forked repository.
 5. Create a pull request detailing your changes.
 
-## 
+##
 
 Give Pocket Cloud a try, and it will live up to expectations! If you encounter any issues or have suggestions, feel free to open an issue on the repository. Your feedback is highly appreciated.
 
 Connect with us:
-- Email: [jayant.gupta.dln@gmail.com](jayant.gupta.dln@gmail.com)
-- LinkedIn: [@jayant-cse](https://www.linkedin.com/in/jayant-cse/)
-- Website: [https://jayant-gupta.vercel.app](https://jayant-gupta.vercel.app)
+
+-   Email: [jayant.gupta.dln@gmail.com](jayant.gupta.dln@gmail.com)
+-   LinkedIn: [@jayant-cse](https://www.linkedin.com/in/jayant-cse/)
+-   Website: [https://jayant-gupta.vercel.app](https://jayant-gupta.vercel.app)
