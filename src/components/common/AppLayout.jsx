@@ -7,6 +7,7 @@ import { toastContext } from "@/context/ToastContext";
 import { useContext } from "react";
 import { BeatLoader, RingLoader } from "react-spinners";
 import { loadingContext } from "@/context/LoadingContext";
+import AboutDeveloper from "./AboutDeveloper";
 
 const AppLayout = ({ children }) => {
     const { showToastMsg } = useContext(toastContext);
@@ -35,8 +36,9 @@ const AppLayout = ({ children }) => {
                     <div className="col-span-2">
                         <div className="relative">{children}</div>
                     </div>
-                    <div className=" p-5 order-first md:order-last">
+                    <div className=" p-5 order-first md:order-last space-y-5">
                         <Storage />
+                        <AboutDeveloper />
                     </div>
                 </div>
             </div>
