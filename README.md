@@ -1,9 +1,6 @@
-# Project Title
-
+# [Pocket Cloud](https://pocket-cloud.vercel.app/)
 
 Pocket Cloud is a cutting-edge web application designed to streamline file and folder management on the cloud. Crafted with Next.js, React.js, Firebase, NextAuth, Google OAuth, Tailwind, and DaisyUI, Pocket Cloud ensures a seamless and feature-rich experience for users. Empowering remote file management, it brings efficiency and convenience to your daily routine. Explore the possibilities with Pocket Cloud in your hands!
-
-# [Pocket Cloud](https://pocket-cloud.vercel.app/)
 
 ![Pocket Cloud](https://raw.githubusercontent.com/Jayant-001/Cloud-File-Manager/master/public/home%20ss.png)
 
